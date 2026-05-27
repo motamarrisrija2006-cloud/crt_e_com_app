@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Products</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<h1 class="m-4">
+    My Products
+</h1>
+
+{% for i in data %}
+
+<div class="card m-4 p-3 shadow"
+     style="width:350px;">
+
+    <h2>{{ i.p_name }}</h2>
+
+    <p>Type : {{ i.p_type }}</p>
+
+    <p>Quantity : {{ i.p_quantity }}</p>
+
+    <p>Price : {{ i.p_price }}</p>
+
+    <a href="/product/add_to_cart/{{ i.id }}/"
+       class="btn btn-success">
+
+       Add To Cart
+
+    </a>
+
+    <br><br>
+
+    <a href="/product/update/{{ i.id }}/"
+       class="btn btn-primary">
+
+       Update Product
+
+    </a>
+
+    <br><br>
+
+    <a href="/product/delete/{{ i.id }}/"
+       class="btn btn-danger">
+
+       Delete Product
+
+    </a>
+
+</div>
+
+{% endfor %}
+
+<a href="/product/cart/"
+   class="btn btn-dark m-4">
+
+   View Cart
+
+</a>
+
+</body>
+</html>
